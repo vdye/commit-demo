@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import os
 import argparse
 import numpy as np
@@ -47,11 +48,38 @@ def main():
 if __name__ == "__main__":
     main()
 =======
+=======
+import os
+import argparse
+>>>>>>> 692f477 (Finish script)
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-img = mpimg.imread('images/test-landscape.jpg')
 
+<<<<<<< HEAD
 imgplot = plt.imshow(img)
 plt.show()
 >>>>>>> 6a885eb (WIP)
+=======
+def main():
+    # Parse args
+    parser = argparse.ArgumentParser(description='Manipulate and display images.')
+    parser.add_argument('image', type=str,
+                        help='the image to process')
+    args = parser.parse_args()
+
+    # Verify file validity
+    if not os.path.isfile(args.image):
+        parser.error(f'Specified file "{args.image}" does not exist!')
+
+    # Read the image
+    img = mpimg.imread(args.image)
+
+    # Display the image
+    plt.imshow(img, cmap='gray', vmin=0, vmax=255)
+    plt.axis('off')
+    plt.show()
+
+if __name__ == "__main__":
+    main()
+>>>>>>> 692f477 (Finish script)
