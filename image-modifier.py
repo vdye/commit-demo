@@ -1,5 +1,6 @@
 import os
 import argparse
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
@@ -9,6 +10,10 @@ def main():
     parser = argparse.ArgumentParser(description='Manipulate and display images.')
     parser.add_argument('image', type=str,
                         help='the image to process')
+    parser.add_argument('--invert', '-i', action='store_true',
+                        help='invert the colors in the image')
+    parser.add_argument('--grey', '-g', action='store_true',
+                        help='convert the image to greyscale')
     args = parser.parse_args()
 
     # Verify file validity
@@ -17,6 +22,12 @@ def main():
 
     # Read the image
     img = mpimg.imread(args.image)
+
+    if args.invert:
+        img = 255 - img
+
+    if args.grey:
+        img = np.average(img, axis=2)
 
     # Display the image
     plt.imshow(img, cmap='gray', vmin=0, vmax=255)
