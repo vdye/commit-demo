@@ -23,6 +23,7 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 <<<<<<< HEAD
+<<<<<<< HEAD
       # - name: Test with pytest
       #   run: |
       #     pytest
@@ -31,3 +32,8 @@ jobs:
         run: |
           pytest
 >>>>>>> 1689371 (Add GitHub Actions CI .yml)
+=======
+      # - name: Test with pytest
+      #   run: |
+      #     pytest
+>>>>>>> 6af4476 (Add requirements.txt + other build fixes)
