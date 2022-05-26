@@ -14,7 +14,7 @@ def main():
                         help='path to save the image')
     parser.add_argument('--invert', '-i', action='store_true',
                         help='invert the colors in the image')
-    parser.add_argument('--grey', '-g', action='store_true',
+    parser.add_argument('--grey', '--gray', '-g', action='store_true',
                         help='convert the image to greyscale')
     args = parser.parse_args()
 
