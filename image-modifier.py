@@ -10,6 +10,8 @@ def main():
     parser = argparse.ArgumentParser(description='Manipulate and display images.')
     parser.add_argument('image', type=str,
                         help='the image to process')
+    parser.add_argument('--output', '-o', metavar="path",
+                        help='path to save the image')
     parser.add_argument('--invert', '-i', action='store_true',
                         help='invert the colors in the image')
     parser.add_argument('--grey', '-g', action='store_true',
@@ -33,6 +35,13 @@ def main():
     plt.imshow(img, cmap='gray', vmin=0, vmax=255)
     plt.axis('off')
     plt.show()
+
+    if args.output:
+        if not os.path.isdir(args.output):
+            os.makedirs(args.output, exist_ok=True)
+        img_basename = os.path.basename(args.image)
+        plt.imsave(os.path.join(args.output, img_basename), img,
+                   cmap='gray', vmin=0, vmax=255)
 
 if __name__ == "__main__":
     main()
